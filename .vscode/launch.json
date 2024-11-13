@@ -1,0 +1,12 @@
+{
+    "configurations": [
+        {
+            "name": "example (Flutter CPH2415)",
+            "program": "lib/main.dart",
+            "cwd": "example",
+            "deviceId": "6ac0f08b",
+            "request": "launch",
+            "type": "dart"
+        }
+    ]
+}

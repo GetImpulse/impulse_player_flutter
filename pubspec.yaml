@@ -1,0 +1,32 @@
+# https://dart.dev/tools/pub/pubspec
+name: impulse_player_flutter
+version: 0.1.0
+description: "The Impulse Player plugin makes using a video player in flutter easy."
+homepage: "https://getimpulse.io"
+repository: "https://github.com/getimpulse/impulse_player_flutter"
+issue_tracker: "https://github.com/getimpulse/impulse_player_flutter/issues"
+documentation: "https://github.com/getimpulse/impulse_player_flutter/README.md"
+
+environment:
+  sdk: ^3.5.3
+  flutter: '>=3.3.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  plugin_platform_interface: ^2.0.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+# Flutter specifics
+flutter:
+  plugin:
+    platforms:
+      android:
+        package: io.getimpulse.player.plugin
+        pluginClass: ImpulsePlayerPlugin
+      ios:
+        pluginClass: ImpulsePlayerPlugin

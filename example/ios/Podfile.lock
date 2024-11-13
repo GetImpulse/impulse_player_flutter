@@ -1,0 +1,34 @@
+PODS:
+  - Flutter (1.0.0)
+  - impulse_player_flutter (0.1.0):
+    - Flutter
+    - impulse_player_ios
+  - impulse_player_ios (0.1.0)
+  - integration_test (0.0.1):
+    - Flutter
+
+DEPENDENCIES:
+  - Flutter (from `Flutter`)
+  - impulse_player_flutter (from `.symlinks/plugins/impulse_player_flutter/ios`)
+  - impulse_player_ios (from `../../../impulse_player_ios`)
+  - integration_test (from `.symlinks/plugins/integration_test/ios`)
+
+EXTERNAL SOURCES:
+  Flutter:
+    :path: Flutter
+  impulse_player_flutter:
+    :path: ".symlinks/plugins/impulse_player_flutter/ios"
+  impulse_player_ios:
+    :path: "../../../impulse_player_ios"
+  integration_test:
+    :path: ".symlinks/plugins/integration_test/ios"
+
+SPEC CHECKSUMS:
+  Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
+  impulse_player_flutter: 98c7e7f1a7c24107f6f28467cdb46016e3b36002
+  impulse_player_ios: 437fa2dcfd8f3df9da09df38d9047af28723fa2d
+  integration_test: 252f60fa39af5e17c3aa9899d35d908a0721b573
+
+PODFILE CHECKSUM: ec055a8bc3ecf677fa4f20dcc22426aa4cce8b03
+
+COCOAPODS: 1.15.2

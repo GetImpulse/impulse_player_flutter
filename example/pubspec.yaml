@@ -1,0 +1,36 @@
+# https://dart.dev/tools/pub/pubspec
+name: impulse_player_example
+description: "Demonstrates how to use the Impulse Player in Flutter."
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+environment:
+  sdk: ^3.5.3
+
+# Dependencies:
+# - Check available: `flutter pub outdated`
+# - Update automatically: `flutter pub upgrade --major-versions`
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # https://dart.dev/tools/pub/dependencies#version-constraints
+  impulse_player_flutter:
+    path: ../ # Local
+  # impulse_player_flutter: ^0.1.0 # Remote
+
+dev_dependencies:
+  integration_test:
+    sdk: flutter
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+# Flutter specifics
+flutter:
+  uses-material-design: true
+  fonts:
+    - family: Inter
+      fonts:
+        - asset: fonts/Inter-Variable.ttf
+        - asset: fonts/Inter-Italic-Variable.ttf
+          style: italic
