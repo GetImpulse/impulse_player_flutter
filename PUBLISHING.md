@@ -1,11 +1,12 @@
 # Publishing
 
-In order to publish, several checks should be done
+In order to publish, several checks should be done.
 
 ## Package
 
 - [ ] Ensure `pubspec.yaml` has the correct version.
 - [ ] Ensure `CHANGELOG.md` is updated.
+- [ ] Ensure `README.md` is updated.
 
 ## Android
 
