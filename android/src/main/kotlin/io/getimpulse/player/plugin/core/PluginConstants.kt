@@ -18,9 +18,12 @@ internal object PluginConstants {
         const val GetError = "get_error"
 
         const val SetAppearance = "set_appearance"
+        const val SetSettings = "set_settings"
     }
 
     object Parameter {
+        const val PictureInPictureEnabled = "picture_in_picture_enabled"
+        const val CastReceiverApplicationId = "cast_receiver_application_id"
         const val Id = "id"
         const val Title = "title"
         const val Subtitle = "subtitle"
@@ -39,7 +42,7 @@ internal object PluginConstants {
         const val OnPlay = "on_play"
         const val OnPause = "on_pause"
         const val OnFinish = "on_ready"
-        const val OnError = "on_ready"
+        const val OnError = "on_error"
     }
 
     object State {

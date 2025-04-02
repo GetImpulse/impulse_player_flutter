@@ -17,10 +17,15 @@ class ImpulsePlayerView extends StatefulWidget {
 class _ImpulsePlayerViewState extends State<ImpulsePlayerView> {
 
   @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return AspectRatio(
       aspectRatio: 16 / 9,
-      child: ImpulsePlayerFactory.createView(context, widget.controller),
+      child: ImpulsePlayerFactory.createView(context, widget.controller)
     );
   }
 

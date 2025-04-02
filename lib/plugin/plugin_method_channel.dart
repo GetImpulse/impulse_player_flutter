@@ -101,17 +101,17 @@ class MethodChannelPlugin extends ImpulsePlayerPluginPlatform {
   }
 
   @override
-  Future<Long> getProgress(int id) async {
-    return await methodChannel.invokeMethod<Long>(ImpulsePlayerPluginConstants.MethodGetProgress, { 
+  Future<int> getProgress(int id) async {
+    return await methodChannel.invokeMethod<int>(ImpulsePlayerPluginConstants.MethodGetProgress, { 
       ImpulsePlayerPluginConstants.ParameterId: id,
-    }) ?? const Long();
+    }) ?? 0;
   }
 
   @override
-  Future<Long> getDuration(int id) async {
-    return await methodChannel.invokeMethod<Long>(ImpulsePlayerPluginConstants.MethodGetDuration, { 
+  Future<int> getDuration(int id) async {
+    return await methodChannel.invokeMethod<int>(ImpulsePlayerPluginConstants.MethodGetDuration, { 
       ImpulsePlayerPluginConstants.ParameterId: id,
-    }) ?? const Long();
+    }) ?? 0;
   }
 
   @override
@@ -132,6 +132,14 @@ class MethodChannelPlugin extends ImpulsePlayerPluginPlatform {
       'p1': fontParams(p1),
       'p2': fontParams(p2),
       'accent_color': accentColor.value,
+    });
+  }
+
+  @override
+  Future<void> setSettings(bool pictureInPictureEnabled, String? castReceiverApplicationId) async {
+    await methodChannel.invokeMethod<void>(ImpulsePlayerPluginConstants.MethodSetSettings, {
+      ImpulsePlayerPluginConstants.ParameterPictureInPictureEnabled: pictureInPictureEnabled,
+      ImpulsePlayerPluginConstants.ParameterCastReceiverApplicationId: castReceiverApplicationId,
     });
   }
 

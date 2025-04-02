@@ -14,7 +14,10 @@ class ImpulsePlayerPluginConstants {
   static const String MethodGetError = "get_error";
   
   static const String MethodSetAppearance = "set_appearance";
+  static const String MethodSetSettings = "set_settings";
 
+  static const String ParameterPictureInPictureEnabled = "picture_in_picture_enabled";
+  static const String ParameterCastReceiverApplicationId = "cast_receiver_application_id";
   static const String ParameterId = "id";
   static const String ParameterTitle = "title";
   static const String ParameterSubtitle = "subtitle";

@@ -55,11 +55,11 @@ abstract class ImpulsePlayerPluginPlatform extends PlatformInterface {
     throw UnimplementedError('getState() has not been implemented.');
   }
 
-  Future<Long> getProgress(int id) {
+  Future<int> getProgress(int id) {
     throw UnimplementedError('getProgress() has not been implemented.');
   }
 
-  Future<Long> getDuration(int id) {
+  Future<int> getDuration(int id) {
     throw UnimplementedError('getDuration() has not been implemented.');
   }
 
@@ -76,6 +76,13 @@ abstract class ImpulsePlayerPluginPlatform extends PlatformInterface {
     TextStyle p1,
     TextStyle p2,
     Color accentColor,
+  ) {
+    throw UnimplementedError('setAppearance() has not been implemented.');
+  }
+
+  Future<void> setSettings(
+    bool pictureInPictureEnabled,
+    String? castReceiverApplicationId,
   ) {
     throw UnimplementedError('setAppearance() has not been implemented.');
   }

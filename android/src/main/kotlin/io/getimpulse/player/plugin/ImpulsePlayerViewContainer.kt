@@ -4,12 +4,11 @@ import android.content.Context
 import android.view.View
 import io.flutter.plugin.platform.PlatformView
 import io.getimpulse.player.ImpulsePlayerView
-import io.getimpulse.player.extension.ImpulsePlayerFlutter
 import io.getimpulse.player.model.PlayerDelegate
 import io.getimpulse.player.model.PlayerState
 import io.getimpulse.player.plugin.core.PluginConstants
 import io.getimpulse.player.plugin.core.PluginNativeViewFactory
-import java.util.UUID
+import io.getimpulse.player.util.ImpulsePlayerFlutter
 
 internal class ImpulsePlayerViewContainer(
     val id: Int,
@@ -66,16 +65,19 @@ internal class ImpulsePlayerViewContainer(
     }
 
     override fun dispose() {
+        println("dispose")
         PluginNativeViewFactory.dispose(this)
     }
 
     override fun onFlutterViewAttached(flutterView: View) {
+        println("onFlutterViewAttached")
         super.onFlutterViewAttached(flutterView)
-        ImpulsePlayerFlutter.externalAttach(inner)
+//        ImpulsePlayerFlutter.externalAttach(inner)
     }
 
     override fun onFlutterViewDetached() {
-        ImpulsePlayerFlutter.externalDetach(inner)
+        println("onFlutterViewDetached")
+//        ImpulsePlayerFlutter.externalDetach(inner)
         super.onFlutterViewDetached()
     }
 }

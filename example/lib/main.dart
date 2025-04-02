@@ -43,8 +43,15 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
+    // _controller.onPlay = () async {
+    //   setState(() { });
+    // };
+    // _controller.onPause = () async {
+    //   setState(() { });
+    // };
     initPlatformState();
-    _setCustomAppearance();
+    _setImpulsePlayerSettings();
+    _setImpulsePlayerAppearance();
     _loadVideo();
     // _controller.onReady = () async {
     //   print("onReady");
@@ -52,22 +59,29 @@ class _MyAppState extends State<MyApp> {
     // };
   }
 
-  void _setCustomAppearance() {
+  void _setImpulsePlayerSettings() {
+    ImpulsePlayer.setSettings(
+        pictureInPictureEnabled: true, // Whether Picture-in-Picture is enabled; Default `false` (disabled)
+        castReceiverApplicationId: "01128E51", // Cast receiver application id of the cast app; Default `null` (disabled)
+    );
+  }
+
+  void _setImpulsePlayerAppearance() {
     ImpulsePlayer.setAppearance(
-      const TextStyle(fontSize: 16, fontFamily: "Inter", fontWeight: FontWeight.w600),
-      const TextStyle(fontSize: 14, fontFamily: "Inter", fontWeight: FontWeight.w600),
-      const TextStyle(fontSize: 12, fontFamily: "Inter", fontWeight: FontWeight.w400),
-      const TextStyle(fontSize: 14, fontFamily: "Inter", fontWeight: FontWeight.w400),
-      const TextStyle(fontSize: 10, fontFamily: "Inter", fontWeight: FontWeight.w400),
-      const TextStyle(fontSize: 16, fontFamily: "Inter", fontWeight: FontWeight.w400),
-      const TextStyle(fontSize: 14, fontFamily: "Inter", fontWeight: FontWeight.w400),
-      const Color(0xFF4945FF),
+      h3: const TextStyle(fontSize: 16, fontFamily: "Inter", fontWeight: FontWeight.w600),
+      h4: const TextStyle(fontSize: 14, fontFamily: "Inter", fontWeight: FontWeight.w600),
+      s1: const TextStyle(fontSize: 12, fontFamily: "Inter", fontWeight: FontWeight.w400),
+      l4: const TextStyle(fontSize: 14, fontFamily: "Inter", fontWeight: FontWeight.w400),
+      l7: const TextStyle(fontSize: 10, fontFamily: "Inter", fontWeight: FontWeight.w400),
+      p1: const TextStyle(fontSize: 16, fontFamily: "Inter", fontWeight: FontWeight.w400),
+      p2: const TextStyle(fontSize: 14, fontFamily: "Inter", fontWeight: FontWeight.w400),
+      accentColor: const Color(0xFF4945FF),
     );
   }
 
   void _loadVideo() async {
-    await Future.delayed(Duration(seconds: 1));
-    await _controller.load("Title", "Subtitle", "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8");
+    // await _controller.load("Title", "Subtitle", "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8");
+    await _controller.load("Title", "Subtitle", "https://test-streams.mux.dev/x36xhzz/url_6/193039199_mp4_h264_aac_hq_7.m3u8");
   }
 
   // Platform messages are asynchronous, so we initialize in an async method.

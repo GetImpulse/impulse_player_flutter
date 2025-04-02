@@ -1,17 +1,26 @@
 PODS:
   - Flutter (1.0.0)
-  - impulse_player_flutter (0.1.0):
+  - google-cast-sdk (4.8.3):
+    - Protobuf (~> 3.13)
+  - impulse_player_flutter (0.2.0):
     - Flutter
-    - impulse_player_ios
-  - impulse_player_ios (0.1.0)
+    - impulse_player_ios (= 0.2.0)
+  - impulse_player_ios (0.2.0):
+    - google-cast-sdk (>= 4.8.0)
   - integration_test (0.0.1):
     - Flutter
+  - Protobuf (3.28.0)
 
 DEPENDENCIES:
   - Flutter (from `Flutter`)
   - impulse_player_flutter (from `.symlinks/plugins/impulse_player_flutter/ios`)
-  - impulse_player_ios (from `../../../impulse_player_ios`)
+  - impulse_player_ios (from `https://github.com/getimpulse/impulse_player_ios.git`)
   - integration_test (from `.symlinks/plugins/integration_test/ios`)
+
+SPEC REPOS:
+  trunk:
+    - google-cast-sdk
+    - Protobuf
 
 EXTERNAL SOURCES:
   Flutter:
@@ -19,16 +28,23 @@ EXTERNAL SOURCES:
   impulse_player_flutter:
     :path: ".symlinks/plugins/impulse_player_flutter/ios"
   impulse_player_ios:
-    :path: "../../../impulse_player_ios"
+    :git: https://github.com/getimpulse/impulse_player_ios.git
   integration_test:
     :path: ".symlinks/plugins/integration_test/ios"
 
+CHECKOUT OPTIONS:
+  impulse_player_ios:
+    :commit: 410371a5de4612856cf2f9e9c0131ee167c1d529
+    :git: https://github.com/getimpulse/impulse_player_ios.git
+
 SPEC CHECKSUMS:
   Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
-  impulse_player_flutter: 98c7e7f1a7c24107f6f28467cdb46016e3b36002
-  impulse_player_ios: 437fa2dcfd8f3df9da09df38d9047af28723fa2d
-  integration_test: 252f60fa39af5e17c3aa9899d35d908a0721b573
+  google-cast-sdk: 1fb6724e94cc5ff23b359176e0cf6360586bb97a
+  impulse_player_flutter: fcd0b4f265a940c7817d3de1cb79f839e4270a44
+  impulse_player_ios: e39fba2cb06c95656ad835e3ba2f1870bfb047e3
+  integration_test: 4a889634ef21a45d28d50d622cf412dc6d9f586e
+  Protobuf: 9f10df3b9b31e47a98789ea4d2f12bb9f84de2ad
 
-PODFILE CHECKSUM: ec055a8bc3ecf677fa4f20dcc22426aa4cce8b03
+PODFILE CHECKSUM: e6abdb4470039957dd4542442fdabd6d8241a92f
 
 COCOAPODS: 1.15.2

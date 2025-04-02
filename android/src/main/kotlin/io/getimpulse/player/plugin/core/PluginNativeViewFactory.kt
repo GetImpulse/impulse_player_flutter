@@ -5,14 +5,14 @@ import io.flutter.plugin.common.MethodChannel
 import io.flutter.plugin.common.StandardMessageCodec
 import io.flutter.plugin.platform.PlatformView
 import io.flutter.plugin.platform.PlatformViewFactory
-import io.getimpulse.player.Navigator
-import io.getimpulse.player.extension.ImpulsePlayerFlutter
 import io.getimpulse.player.model.PlayerDelegate
 import io.getimpulse.player.plugin.ImpulsePlayerViewContainer
+import io.getimpulse.player.util.ImpulsePlayerFlutter
+import io.getimpulse.player.util.ImpulsePlayerNavigator
 
 internal class PluginNativeViewFactory(
     private val channel: MethodChannel,
-    private val navigator: Navigator,
+    private val navigator: ImpulsePlayerNavigator,
 ) : PlatformViewFactory(StandardMessageCodec.INSTANCE) {
 
     companion object {

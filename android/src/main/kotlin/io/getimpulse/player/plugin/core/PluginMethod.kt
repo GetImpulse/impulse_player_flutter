@@ -7,6 +7,7 @@ import io.flutter.plugin.common.MethodCall
 import io.getimpulse.player.ImpulsePlayer
 import io.getimpulse.player.model.ImpulsePlayerAppearance
 import io.getimpulse.player.model.ImpulsePlayerFont
+import io.getimpulse.player.model.ImpulsePlayerSettings
 import kotlin.math.roundToInt
 
 internal sealed class PluginMethod {
@@ -36,6 +37,10 @@ internal sealed class PluginMethod {
         val p1: ImpulsePlayerFont,
         val p2: ImpulsePlayerFont,
         val accentColor: Int,
+    ) : PluginMethod()
+    data class SetSettings(
+        val pictureInPictureEnabled: Boolean,
+        val castReceiverApplicationId: String?,
     ) : PluginMethod()
 
     fun execute(): Result = when (this) {
@@ -89,6 +94,16 @@ internal sealed class PluginMethod {
                 ImpulsePlayerAppearance(
                     h3, h4, s1, l4, l7, p1, p2,
                     accentColor,
+                )
+            )
+            Result.Executed
+        }
+
+        is SetSettings -> {
+            ImpulsePlayer.setSettings(
+                ImpulsePlayerSettings(
+                    pictureInPictureEnabled,
+                    castReceiverApplicationId,
                 )
             )
             Result.Executed
@@ -161,6 +176,16 @@ internal sealed class PluginMethod {
                         createFont(context, call.argument<Map<String, Any>>("p1")!!),
                         createFont(context, call.argument<Map<String, Any>>("p2")!!),
                         call.argument<Int>("accent_color")!!,
+                    )
+                }
+
+                PluginConstants.Method.SetSettings -> {
+                    val pictureInPictureEnabled = call.argument<Boolean>(PluginConstants.Parameter.PictureInPictureEnabled)
+                    val castReceiverApplicationId = call.argument<String>(PluginConstants.Parameter.CastReceiverApplicationId)
+                    requireNotNull(pictureInPictureEnabled)
+                    SetSettings(
+                        pictureInPictureEnabled,
+                        castReceiverApplicationId,
                     )
                 }
 

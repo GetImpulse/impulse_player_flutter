@@ -19,6 +19,7 @@ enum PluginMethod {
     case getDuration(id: Int64)
     case getError(id: Int64)
     case setAppearance(h3: ImpulsePlayerFont, h4: ImpulsePlayerFont, s1: ImpulsePlayerFont, l4: ImpulsePlayerFont, l7: ImpulsePlayerFont, p1: ImpulsePlayerFont, p2: ImpulsePlayerFont, accentColor: UIColor)
+    case setSettings(pictureInPictureEnabled: Bool, castReceiverApplicationId: String?)
 
     @MainActor func execute() -> Any? {
         switch self {
@@ -69,6 +70,14 @@ enum PluginMethod {
                 p2: p2,
                 accentColor: accentColor
             ))
+            return nil
+            
+        case .setSettings(let pictureInPictureEnabled, let castReceiverApplicationId):
+            let settings = ImpulsePlayerSettings(
+                pictureInPictureEnabled: pictureInPictureEnabled,
+                castReceiverApplicationId: castReceiverApplicationId
+            )
+            ImpulsePlayer.setSettings(settings: settings)
             return nil
         }
     }
@@ -132,6 +141,16 @@ enum PluginMethod {
                 p1: createFont(json: arguments["p1"] as! [String: Any]),
                 p2: createFont(json: arguments["p2"] as! [String: Any]),
                 accentColor: colorFromInt64(argb: arguments["accent_color"] as! Int64)
+            )
+            
+        case PluginConstants.Method.setSettings:
+            guard let pictureInPictureEnabled = arguments[PluginConstants.Parameter.pictureInPictureEnabled] as? Bool else {
+                return nil
+            }
+            let castReceiverApplicationId = arguments[PluginConstants.Parameter.castReceiverApplicationId] as? String
+            return .setSettings(
+                pictureInPictureEnabled: pictureInPictureEnabled,
+                castReceiverApplicationId: castReceiverApplicationId
             )
             
         default:

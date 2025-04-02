@@ -14,9 +14,12 @@ internal enum PluginConstants {
         static let getError = "get_error"
         
         static let setAppearance = "set_appearance"
+        static let setSettings = "set_settings"
     }
     
     enum Parameter {
+        static let pictureInPictureEnabled = "picture_in_picture_enabled"
+        static let castReceiverApplicationId = "cast_receiver_application_id"
         static let id = "id"
         static let title = "title"
         static let subtitle = "subtitle"

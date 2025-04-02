@@ -10,6 +10,8 @@ Features:
 - Playback quality selection.
 - Playback speed selection.
 - Fullscreen handling.
+- Picture-in-Picture handling.
+- Support for casting.
 
 ## Installing
 
@@ -18,7 +20,7 @@ Features:
 In root `pubspec.yaml`:
 
 ```dart
-  impulse_player: ^0.1.0 # Remote
+  impulse_player: ^0.2.0 # Remote
 ```
 
 ### Android
@@ -39,8 +41,10 @@ allprojects {
 In `ios/Podfile`:
 
 ```ruby
-pod 'impulse_player_ios'
+pod 'impulse_player_ios', :git => 'https://github.com/getimpulse/impulse_player_ios.git'
 ```
+
+> **Note**: When not using the latest version, `, :tag =>'x.x.x'` should be added here as well. This prevents it from using the latest version, but adds maintenance in that it should be updated accordingly when updating the Impulse Player.
 
 ## Usage
 
@@ -80,8 +84,8 @@ The values exposed by the player.
 ```dart
 _controller.isPlaying() // Boolean, default `false`
 _controller.getState() // PlayerState, default `Loading`
-_controller.getProgress() // Long, default `0`
-_controller.getDuration() // Long, default `0`
+_controller.getProgress() // int, default `0`
+_controller.getDuration() // int, default `0`
 _controller.getError() // String?, default `null`
 ```
 
@@ -118,20 +122,35 @@ _controller.onReady = () async {
 };
 ```
 
+### Settings
+
+Features can be enabled or disabled based on the settings. The defaults can be changed as follows:
+
+```dart
+ImpulsePlayer.setSettings(
+    pictureInPictureEnabled: true, // Whether Picture-in-Picture is enabled; Default `false` (disabled)
+    castReceiverApplicationId: "01128E51", // Cast receiver application id of the cast app; Default `null` (disabled)
+);
+```
+
+> **Note (iOS)**: To enable Picture-in-Picture mode, add the **'Background Modes'** capability in the Runner target's project settings and enable **'Audio, AirPlay, and Picture in Picture'**.
+
+> **Note (iOS)**: Setting up Chromecast with a custom receiver application ID requires additional configuration. On the iOS Runner target, apply the instructions described in the [iOS repository: Chromecast setup](https://github.com/GetImpulse/impulse_player_ios#chromecast-setup).
+
 ### Customization
 
 Apply a custom appearance to customize the look of the player.
 
 ```dart
 ImpulsePlayer.setAppearance(
-    const TextStyle(fontSize: 16, fontFamily: "Inter", fontWeight: FontWeight.w600),
-    const TextStyle(fontSize: 14, fontFamily: "Inter", fontWeight: FontWeight.w600),
-    const TextStyle(fontSize: 12, fontFamily: "Inter", fontWeight: FontWeight.w400),
-    const TextStyle(fontSize: 14, fontFamily: "Inter", fontWeight: FontWeight.w400),
-    const TextStyle(fontSize: 10, fontFamily: "Inter", fontWeight: FontWeight.w400),
-    const TextStyle(fontSize: 16, fontFamily: "Inter", fontWeight: FontWeight.w400),
-    const TextStyle(fontSize: 14, fontFamily: "Inter", fontWeight: FontWeight.w400),
-    const Color(0x4945FF),
+    h3: const TextStyle(fontSize: 16, fontFamily: "Inter", fontWeight: FontWeight.w600),
+    h4: const TextStyle(fontSize: 14, fontFamily: "Inter", fontWeight: FontWeight.w600),
+    s1: const TextStyle(fontSize: 12, fontFamily: "Inter", fontWeight: FontWeight.w400),
+    l4: const TextStyle(fontSize: 14, fontFamily: "Inter", fontWeight: FontWeight.w400),
+    l7: const TextStyle(fontSize: 10, fontFamily: "Inter", fontWeight: FontWeight.w400),
+    p1: const TextStyle(fontSize: 16, fontFamily: "Inter", fontWeight: FontWeight.w400),
+    p2: const TextStyle(fontSize: 14, fontFamily: "Inter", fontWeight: FontWeight.w400),
+    accentColor: const Color(0xFF4945FF),
 );
 ```
 

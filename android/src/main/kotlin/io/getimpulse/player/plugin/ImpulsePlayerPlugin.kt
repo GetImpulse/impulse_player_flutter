@@ -9,11 +9,11 @@ import io.flutter.plugin.common.MethodChannel
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler
 import io.flutter.plugin.common.MethodChannel.Result
 import io.getimpulse.player.ImpulsePlayer
-import io.getimpulse.player.Navigator
 import io.getimpulse.player.model.ImpulsePlayerSettings
-import io.getimpulse.player.plugin.core.PluginMethod
 import io.getimpulse.player.plugin.core.PluginConstants
+import io.getimpulse.player.plugin.core.PluginMethod
 import io.getimpulse.player.plugin.core.PluginNativeViewFactory
+import io.getimpulse.player.util.ImpulsePlayerNavigator
 
 class ImpulsePlayerPlugin : FlutterPlugin, MethodCallHandler, ActivityAware {
 
@@ -29,15 +29,9 @@ class ImpulsePlayerPlugin : FlutterPlugin, MethodCallHandler, ActivityAware {
             PluginConstants.ViewTag,
             PluginNativeViewFactory(
                 channel,
-                object : Navigator {
+                object : ImpulsePlayerNavigator {
                     override fun getCurrentActivity() = requireNotNull(currentActivity)
                 })
-        )
-
-        ImpulsePlayer.setSettings(
-            ImpulsePlayerSettings(
-                pictureInPictureEnabled = false,
-            )
         )
     }
 
@@ -72,18 +66,22 @@ class ImpulsePlayerPlugin : FlutterPlugin, MethodCallHandler, ActivityAware {
     }
 
     override fun onAttachedToActivity(binding: ActivityPluginBinding) {
+        println("onAttachedToActivity")
         currentActivity = binding.activity
     }
 
     override fun onDetachedFromActivityForConfigChanges() {
+        println("onDetachedFromActivityForConfigChanges")
         currentActivity = null
     }
 
     override fun onReattachedToActivityForConfigChanges(binding: ActivityPluginBinding) {
+        println("onReattachedToActivityForConfigChanges")
         currentActivity = binding.activity
     }
 
     override fun onDetachedFromActivity() {
+        println("onDetachedFromActivity")
         currentActivity = null
     }
 }
