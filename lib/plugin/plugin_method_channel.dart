@@ -22,9 +22,9 @@ class MethodChannelPlugin extends ImpulsePlayerPluginPlatform {
     int id = call.arguments[ImpulsePlayerPluginConstants.ParameterId];
     switch (call.method) {
       case 'onStateChanged':
-        final state = call.arguments;
+        // final state = call.arguments;
         // Handle the updated state from StateFlow here
-        print("State changed: $state");
+        // print("State changed: $state");
         break;
       case ImpulsePlayerPluginConstants.CallbackOnReady:
         ImpulsePlayerFactory.getController(id)?.onReady?.call();
@@ -54,12 +54,13 @@ class MethodChannelPlugin extends ImpulsePlayerPluginPlatform {
   }
   
   @override
-  Future<void> load(int id, String? title, String? subtitle, String url) async {
+  Future<void> load(int id, String url, String? title, String? subtitle, Map<String, String> headers) async {
      await methodChannel.invokeMethod<void>(ImpulsePlayerPluginConstants.MethodLoad, { 
       ImpulsePlayerPluginConstants.ParameterId: id, 
+      ImpulsePlayerPluginConstants.ParameterUrl: url,
       ImpulsePlayerPluginConstants.ParameterTitle: title,
       ImpulsePlayerPluginConstants.ParameterSubtitle: subtitle,
-      ImpulsePlayerPluginConstants.ParameterUrl: url,
+      ImpulsePlayerPluginConstants.ParameterHeaders: headers,
     });
   }
 

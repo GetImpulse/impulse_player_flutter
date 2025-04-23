@@ -21,9 +21,10 @@ internal enum PluginConstants {
         static let pictureInPictureEnabled = "picture_in_picture_enabled"
         static let castReceiverApplicationId = "cast_receiver_application_id"
         static let id = "id"
+        static let url = "url"
         static let title = "title"
         static let subtitle = "subtitle"
-        static let url = "url"
+        static let headers = "headers"
         static let time = "time"
         static let message = "message"
     }

@@ -17,8 +17,13 @@ internal sealed class PluginMethod {
         data class Data<T>(val value: T) : Result()
     }
 
-    data class Load(val id: Int, val title: String?, val subtitle: String?, val url: String) :
-        PluginMethod()
+    data class Load(
+        val id: Int,
+        val url: String,
+        val title: String?,
+        val subtitle: String?,
+        val headers: Map<String, String>,
+    ) : PluginMethod()
 
     data class Play(val id: Int) : PluginMethod()
     data class Pause(val id: Int) : PluginMethod()
@@ -45,7 +50,7 @@ internal sealed class PluginMethod {
 
     fun execute(): Result = when (this) {
         is Load -> {
-            PluginNativeViewFactory.get(id)?.load(title, subtitle, url)
+            PluginNativeViewFactory.get(id)?.load(url, title, subtitle, headers)
             Result.Executed
         }
 
@@ -119,8 +124,9 @@ internal sealed class PluginMethod {
                     val url = call.argument<String>(PluginConstants.Parameter.Url)
                     val title = call.argument<String>(PluginConstants.Parameter.Title)
                     val description = call.argument<String>(PluginConstants.Parameter.Subtitle)
+                    val headers = call.argument<Map<String, String>>(PluginConstants.Parameter.Headers)
                     requireNotNull(url)
-                    Load(id, title, description, url)
+                    Load(id, url, title, description, headers ?: mapOf())
                 }
 
                 PluginConstants.Method.Play -> {

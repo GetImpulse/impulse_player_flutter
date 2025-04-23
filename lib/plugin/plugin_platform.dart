@@ -31,7 +31,7 @@ abstract class ImpulsePlayerPluginPlatform extends PlatformInterface {
     throw UnimplementedError('platformVersion() has not been implemented.');
   }
 
-  Future<void> load(int id, String? title, String? subtitle, String url) {
+  Future<void> load(int id, String url, String? title, String? subtitle, Map<String, String> headers) {
     throw UnimplementedError('load() has not been implemented.');
   }
 

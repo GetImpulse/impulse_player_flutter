@@ -2,14 +2,14 @@ PODS:
   - Flutter (1.0.0)
   - google-cast-sdk (4.8.3):
     - Protobuf (~> 3.13)
-  - impulse_player_flutter (0.2.0):
+  - impulse_player_flutter (0.3.0):
     - Flutter
-    - impulse_player_ios (= 0.2.0)
+    - impulse_player_ios
   - impulse_player_ios (0.2.0):
     - google-cast-sdk (>= 4.8.0)
   - integration_test (0.0.1):
     - Flutter
-  - Protobuf (3.28.0)
+  - Protobuf (3.29.4)
 
 DEPENDENCIES:
   - Flutter (from `Flutter`)
@@ -34,16 +34,16 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   impulse_player_ios:
-    :commit: 410371a5de4612856cf2f9e9c0131ee167c1d529
+    :commit: 5b9498c0c1fda51b37a8c117197c25348bcb1909
     :git: https://github.com/getimpulse/impulse_player_ios.git
 
 SPEC CHECKSUMS:
   Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
   google-cast-sdk: 1fb6724e94cc5ff23b359176e0cf6360586bb97a
-  impulse_player_flutter: fcd0b4f265a940c7817d3de1cb79f839e4270a44
+  impulse_player_flutter: 2b5b837f6539c6ca5b2df772e91df8a3f90caf92
   impulse_player_ios: e39fba2cb06c95656ad835e3ba2f1870bfb047e3
   integration_test: 4a889634ef21a45d28d50d622cf412dc6d9f586e
-  Protobuf: 9f10df3b9b31e47a98789ea4d2f12bb9f84de2ad
+  Protobuf: 2e6de032ba12b9efb390ae550d1a243a5b19ddfc
 
 PODFILE CHECKSUM: e6abdb4470039957dd4542442fdabd6d8241a92f
 

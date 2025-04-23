@@ -20,7 +20,7 @@ Features:
 In root `pubspec.yaml`:
 
 ```dart
-  impulse_player: ^0.2.0 # Remote
+  impulse_player: ^0.3.0 # Remote
 ```
 
 ### Android

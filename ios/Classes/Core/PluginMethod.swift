@@ -9,7 +9,7 @@ enum PluginMethod {
         case data(value: T)
     }
     
-    case load(id: Int64, title: String?, subtitle: String?, url: String)
+    case load(id: Int64, url: String, title: String?, subtitle: String?, headers: [String:String])
     case play(id: Int64)
     case pause(id: Int64)
     case seek(id: Int64, time: Int64)
@@ -23,8 +23,8 @@ enum PluginMethod {
 
     @MainActor func execute() -> Any? {
         switch self {
-        case .load(let id, let title, let subtitle, let url):
-            PluginNativeViewFactory.get(id)?.load(title: title, subtitle: subtitle, url: url)
+        case .load(let id, let url, let title, let subtitle, let headers):
+            PluginNativeViewFactory.get(id)?.load(url: url, title: title, subtitle: subtitle, headers: headers)
             return nil
             
         case .play(let id):
@@ -89,12 +89,14 @@ enum PluginMethod {
         switch call.method {
         case PluginConstants.Method.load:
             guard let id,
-                  let url = arguments[PluginConstants.Parameter.url] as? String,
-                  let title = arguments[PluginConstants.Parameter.title] as? String,
-                  let subtitle = arguments[PluginConstants.Parameter.subtitle] as? String else {
+                  let url = arguments[PluginConstants.Parameter.url] as? String
+            else {
                 return nil
             }
-            return .load(id: id, title: title, subtitle: subtitle, url: url)
+            let title = arguments[PluginConstants.Parameter.title] as? String
+            let subtitle = arguments[PluginConstants.Parameter.subtitle] as? String
+            let headers = arguments[PluginConstants.Parameter.headers] as? [String: String] ?? [:]
+            return .load(id: id, url: url, title: title, subtitle: subtitle, headers: headers)
             
         case PluginConstants.Method.play:
             guard let id else { fatalError("Missing id") }

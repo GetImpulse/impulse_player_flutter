@@ -1,6 +1,5 @@
 import 'dart:ffi';
 
-import 'package:flutter/foundation.dart';
 import 'package:impulse_player_flutter/model/impulse_player_state.dart';
 import 'package:impulse_player_flutter/plugin/impulse_player_factory.dart';
 import 'package:impulse_player_flutter/plugin/plugin_platform.dart';
@@ -23,9 +22,15 @@ class ImpulsePlayerController {
     this.onError,
   });
 
-  Future<void> load(String? title, String? subtitle, String url) async {
+  Future<void> load(
+    String url, 
+    {
+      String? title,
+      String? subtitle, 
+      Map<String, String> headers = const {},
+    }) async {
     final id = await ImpulsePlayerFactory.getViewId(this);
-    return ImpulsePlayerPluginPlatform.instance.load(id, title, subtitle, url);
+    return ImpulsePlayerPluginPlatform.instance.load(id, url, title, subtitle, headers);
   }
 
   Future<void> play() async {

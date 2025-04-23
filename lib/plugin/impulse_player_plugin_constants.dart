@@ -19,9 +19,10 @@ class ImpulsePlayerPluginConstants {
   static const String ParameterPictureInPictureEnabled = "picture_in_picture_enabled";
   static const String ParameterCastReceiverApplicationId = "cast_receiver_application_id";
   static const String ParameterId = "id";
+  static const String ParameterUrl = "url";
   static const String ParameterTitle = "title";
   static const String ParameterSubtitle = "subtitle";
-  static const String ParameterUrl = "url";
+  static const String ParameterHeaders = "headers";
   static const String ParameterTime = "time";
   static const String ParameterMessage = "message";
   

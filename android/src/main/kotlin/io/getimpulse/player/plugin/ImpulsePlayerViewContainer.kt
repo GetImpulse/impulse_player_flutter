@@ -24,8 +24,8 @@ internal class ImpulsePlayerViewContainer(
 
     override fun getView() = inner
 
-    fun load(title: String?, subtitle: String?, url: String) {
-        inner.load(title, subtitle, url)
+    fun load(url: String, title: String?, subtitle: String?, headers: Map<String, String>) {
+        inner.load(url, title, subtitle, headers)
     }
 
     fun play() {

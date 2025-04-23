@@ -25,9 +25,10 @@ internal object PluginConstants {
         const val PictureInPictureEnabled = "picture_in_picture_enabled"
         const val CastReceiverApplicationId = "cast_receiver_application_id"
         const val Id = "id"
+        const val Url = "url"
+        const val Headers = "headers"
         const val Title = "title"
         const val Subtitle = "subtitle"
-        const val Url = "url"
         const val Time = "time"
         const val Message = "message"
     }

@@ -80,8 +80,12 @@ class _MyAppState extends State<MyApp> {
   }
 
   void _loadVideo() async {
-    // await _controller.load("Title", "Subtitle", "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8");
-    await _controller.load("Title", "Subtitle", "https://test-streams.mux.dev/x36xhzz/url_6/193039199_mp4_h264_aac_hq_7.m3u8");
+    const headers = <String, String>{
+      'key': 'value',
+    };
+    // await _controller.load("https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8"); // Big Buck Bunny (Blender Foundation)
+    // await _controller.load("https://origin.broadpeak.io/bpk-vod/voddemo/hlsv4/5min/sintel/index.m3u8", title: "Sintel", subtitle: "Blender Foundation"); 
+    await _controller.load("https://demo.unified-streaming.com/k8s/features/stable/video/tears-of-steel/tears-of-steel.ism/.m3u8", title: "Tears of Steel", subtitle: "Blender Foundation", headers: headers);
   }
 
   // Platform messages are asynchronous, so we initialize in an async method.

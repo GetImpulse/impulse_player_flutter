@@ -1,3 +1,8 @@
+## 0.3.0
+
+* [Video Player] Added support for headers on video load.
+- [Cast] Added option to disable casting per player.
+
 ## 0.2.0
 
 * [Android] Greatly improved how the player shows on Android, preventing some issues with playback.
