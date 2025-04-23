@@ -1,3 +1,7 @@
+## 0.3.2
+
+* [iOS] Fixed an issue causing iOS not finding the iOS library since version 0.3.0.
+
 ## 0.3.1
 
 * [Cast] Added option to disable casting per player.
