@@ -17,6 +17,8 @@ internal sealed class PluginMethod {
         data class Data<T>(val value: T) : Result()
     }
 
+    data class SetCastEnabled(val id: Int, val enabled: Boolean) : PluginMethod()
+
     data class Load(
         val id: Int,
         val url: String,
@@ -24,7 +26,6 @@ internal sealed class PluginMethod {
         val subtitle: String?,
         val headers: Map<String, String>,
     ) : PluginMethod()
-
     data class Play(val id: Int) : PluginMethod()
     data class Pause(val id: Int) : PluginMethod()
     data class Seek(val id: Int, val time: Long) : PluginMethod()
@@ -49,6 +50,10 @@ internal sealed class PluginMethod {
     ) : PluginMethod()
 
     fun execute(): Result = when (this) {
+        is SetCastEnabled -> {
+            PluginNativeViewFactory.get(id)?.setCastEnabled(enabled)
+            Result.Executed
+        }
         is Load -> {
             PluginNativeViewFactory.get(id)?.load(url, title, subtitle, headers)
             Result.Executed
@@ -119,6 +124,13 @@ internal sealed class PluginMethod {
         fun from(call: MethodCall, context: Context?): PluginMethod? {
             val id = call.argument<Int>(PluginConstants.Parameter.Id)
             return when (call.method) {
+                PluginConstants.Method.SetCastEnabled -> {
+                    requireNotNull(id)
+                    val enabled = call.argument<Boolean>(PluginConstants.Parameter.Enabled)
+                    requireNotNull(enabled)
+                    SetCastEnabled(id, enabled)
+                }
+
                 PluginConstants.Method.Load -> {
                     requireNotNull(id)
                     val url = call.argument<String>(PluginConstants.Parameter.Url)

@@ -7,6 +7,7 @@ internal object PluginConstants {
     const val ViewTag = "impulse-player-view"
 
     object Method {
+        const val SetCastEnabled = "set_cast_enabled"
         const val Load = "load"
         const val Play = "play"
         const val Pause = "pause"
@@ -25,6 +26,7 @@ internal object PluginConstants {
         const val PictureInPictureEnabled = "picture_in_picture_enabled"
         const val CastReceiverApplicationId = "cast_receiver_application_id"
         const val Id = "id"
+        const val Enabled = "enabled"
         const val Url = "url"
         const val Headers = "headers"
         const val Title = "title"

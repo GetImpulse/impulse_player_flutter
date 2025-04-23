@@ -21,6 +21,10 @@ class ImpulsePlayerViewContainer: NSObject, FlutterPlatformView {
         return inner
     }
     
+    func setCastEnabled(_ enabled: Bool) {
+        inner.setCastEnabled(enabled)
+    }
+    
     func load(url: String, title: String?, subtitle: String?, headers: [String: String]) {
         inner.load( title: title, subtitle: subtitle, url: URL(string: url)!, headers: headers)
     }

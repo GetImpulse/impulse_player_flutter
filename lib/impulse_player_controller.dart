@@ -22,6 +22,11 @@ class ImpulsePlayerController {
     this.onError,
   });
 
+  Future<void> setCastEnabled(bool enabled) async {
+    final id = await ImpulsePlayerFactory.getViewId(this);
+    return ImpulsePlayerPluginPlatform.instance.setCastEnabled(id, enabled);
+  }
+
   Future<void> load(
     String url, 
     {

@@ -3,6 +3,7 @@ internal enum PluginConstants {
     static let viewTag = "impulse-player-view"
 
     enum Method {
+        static let setCastEnabled = "set_cast_enabled"
         static let load = "load"
         static let play = "play"
         static let pause = "pause"
@@ -21,6 +22,7 @@ internal enum PluginConstants {
         static let pictureInPictureEnabled = "picture_in_picture_enabled"
         static let castReceiverApplicationId = "cast_receiver_application_id"
         static let id = "id"
+        static let enabled = "enabled"
         static let url = "url"
         static let title = "title"
         static let subtitle = "subtitle"

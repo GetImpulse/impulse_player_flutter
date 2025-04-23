@@ -1,7 +1,10 @@
+## 0.3.1
+
+* [Cast] Added option to disable casting per player.
+
 ## 0.3.0
 
 * [Video Player] Added support for headers on video load.
-- [Cast] Added option to disable casting per player.
 
 ## 0.2.0
 

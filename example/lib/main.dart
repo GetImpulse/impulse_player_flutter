@@ -52,6 +52,7 @@ class _MyAppState extends State<MyApp> {
     initPlatformState();
     _setImpulsePlayerSettings();
     _setImpulsePlayerAppearance();
+    _controller.setCastEnabled(true);
     _loadVideo();
     // _controller.onReady = () async {
     //   print("onReady");

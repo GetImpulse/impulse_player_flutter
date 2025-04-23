@@ -52,6 +52,14 @@ class MethodChannelPlugin extends ImpulsePlayerPluginPlatform {
     final version = await methodChannel.invokeMethod<String>('getPlatformVersion');
     return version;
   }
+
+  @override
+  Future<void> setCastEnabled(int id, bool enabled) async {
+     await methodChannel.invokeMethod<void>(ImpulsePlayerPluginConstants.MethodSetCastEnabled, { 
+      ImpulsePlayerPluginConstants.ParameterId: id, 
+      ImpulsePlayerPluginConstants.ParameterEnabled: enabled, 
+    });
+  }
   
   @override
   Future<void> load(int id, String url, String? title, String? subtitle, Map<String, String> headers) async {

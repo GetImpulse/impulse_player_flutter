@@ -20,7 +20,7 @@ Features:
 In root `pubspec.yaml`:
 
 ```dart
-  impulse_player: ^0.3.0 # Remote
+  impulse_player: ^0.3.1 # Remote
 ```
 
 ### Android
@@ -67,10 +67,16 @@ ImpulsePlayerView(
 The main commands to use the player:
 
 ```dart
+const headers = <String, String>{
+    'key': 'value',
+};
+
+_controller.load("url")
 _controller.load(
-    "Title",
-    "Subtitle",
     "url",
+    title: "Title",
+    subtitle: "Subtitle",
+    headers: headers,
 )
 _controller.play()
 _controller.pause()
@@ -136,6 +142,8 @@ ImpulsePlayer.setSettings(
 > **Note (iOS)**: To enable Picture-in-Picture mode, add the **'Background Modes'** capability in the Runner target's project settings and enable **'Audio, AirPlay, and Picture in Picture'**.
 
 > **Note (iOS)**: Setting up Chromecast with a custom receiver application ID requires additional configuration. On the iOS Runner target, apply the instructions described in the [iOS repository: Chromecast setup](https://github.com/GetImpulse/impulse_player_ios#chromecast-setup).
+
+> **Note**: Note: Cast is unsupported when a player loads a video using additional authorization headers. To disable Cast for that specific player while preserving Cast functionality for others, use `impulsePlayer.setCastEnabled(false)`.
 
 ### Customization
 

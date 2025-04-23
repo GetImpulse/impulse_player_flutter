@@ -3,6 +3,7 @@ class ImpulsePlayerPluginConstants {
   static const String PluginTag = "impulse-player-plugin";
   static const String ViewTag = "impulse-player-view";
 
+  static const String MethodSetCastEnabled = "set_cast_enabled";
   static const String MethodLoad = "load";
   static const String MethodPlay = "play";
   static const String MethodPause = "pause";
@@ -19,6 +20,7 @@ class ImpulsePlayerPluginConstants {
   static const String ParameterPictureInPictureEnabled = "picture_in_picture_enabled";
   static const String ParameterCastReceiverApplicationId = "cast_receiver_application_id";
   static const String ParameterId = "id";
+  static const String ParameterEnabled = "enabled";
   static const String ParameterUrl = "url";
   static const String ParameterTitle = "title";
   static const String ParameterSubtitle = "subtitle";

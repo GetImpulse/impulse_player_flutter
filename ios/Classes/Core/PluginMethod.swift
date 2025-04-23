@@ -9,6 +9,7 @@ enum PluginMethod {
         case data(value: T)
     }
     
+    case setCastEnabled(id: Int64, enabled: Bool)
     case load(id: Int64, url: String, title: String?, subtitle: String?, headers: [String:String])
     case play(id: Int64)
     case pause(id: Int64)
@@ -23,6 +24,10 @@ enum PluginMethod {
 
     @MainActor func execute() -> Any? {
         switch self {
+        case .setCastEnabled(let id, let enabled):
+            PluginNativeViewFactory.get(id)?.setCastEnabled(enabled)
+            return nil
+            
         case .load(let id, let url, let title, let subtitle, let headers):
             PluginNativeViewFactory.get(id)?.load(url: url, title: title, subtitle: subtitle, headers: headers)
             return nil
@@ -87,6 +92,13 @@ enum PluginMethod {
         
         let id = arguments[PluginConstants.Parameter.id] as? Int64
         switch call.method {
+        case PluginConstants.Method.setCastEnabled:
+            guard let id else { fatalError("Missing id") }
+            guard let enabled = arguments[PluginConstants.Parameter.enabled] as? Bool else {
+                return nil
+            }
+            return .setCastEnabled(id: id, enabled: enabled)
+            
         case PluginConstants.Method.load:
             guard let id,
                   let url = arguments[PluginConstants.Parameter.url] as? String
