@@ -5,7 +5,6 @@ import 'package:flutter/services.dart';
 import 'package:impulse_player_flutter/impulse_player.dart';
 import 'package:impulse_player_flutter/impulse_player_controller.dart';
 import 'package:impulse_player_flutter/impulse_player_view.dart';
-import 'package:impulse_player_flutter/plugin/impulse_player_plugin.dart';
 import 'package:impulse_player_flutter/plugin/plugin_platform.dart';
 
 void main() {
@@ -38,7 +37,10 @@ class _MyAppState extends State<MyApp> {
       print("onError: $message");
     },
   );
-  final ImpulsePlayerPlugin _plugin = ImpulsePlayerPlugin();
+
+  final ImpulsePlayerController _controller2 = ImpulsePlayerController();
+  final ImpulsePlayerController _controller3 = ImpulsePlayerController();
+  final ImpulsePlayerController _controller4 = ImpulsePlayerController();
 
   @override
   void initState() {
@@ -84,9 +86,10 @@ class _MyAppState extends State<MyApp> {
     const headers = <String, String>{
       'key': 'value',
     };
-    // await _controller.load("https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8"); // Big Buck Bunny (Blender Foundation)
-    // await _controller.load("https://origin.broadpeak.io/bpk-vod/voddemo/hlsv4/5min/sintel/index.m3u8", title: "Sintel", subtitle: "Blender Foundation"); 
-    await _controller.load("https://demo.unified-streaming.com/k8s/features/stable/video/tears-of-steel/tears-of-steel.ism/.m3u8", title: "Tears of Steel", subtitle: "Blender Foundation", headers: headers);
+    await _controller.load("https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8"); // Big Buck Bunny (Blender Foundation)
+    await _controller2.load("https://origin.broadpeak.io/bpk-vod/voddemo/hlsv4/5min/sintel/index.m3u8", title: "Sintel", subtitle: "Blender Foundation"); 
+    await _controller3.load("https://demo.unified-streaming.com/k8s/features/stable/video/tears-of-steel/tears-of-steel.ism/.m3u8", title: "Tears of Steel", subtitle: "Blender Foundation", headers: headers);
+    await _controller4.load("https://webuildapps.com");
   }
 
   // Platform messages are asynchronous, so we initialize in an async method.
@@ -122,9 +125,45 @@ class _MyAppState extends State<MyApp> {
           child: ListView(
             children: [
               Text('Running on: $_platformVersion\n'),
+              const Text('Big Buck Bunny\n(Blender Foundation)\n'),
               ImpulsePlayerView(
                 controller: _controller,
               ),
+              const Text('\nSintel\n(Blender Foundation)\n'),
+              ImpulsePlayerView(
+                controller: _controller2,
+              ),
+              const Text('\nTears of Steel\n(Blender Foundation)\n'),
+              ImpulsePlayerView(
+                controller: _controller3,
+              ),
+              const Text('\nNo video\n'),
+              const Text('(Showing failed state)\n'),
+              ImpulsePlayerView(
+                controller: _controller4,
+              ),
+              Text('\nRunning on: $_platformVersion\n'),
+              // Text('Running on: $_platformVersion\n'),
+              // Text('Running on: $_platformVersion\n'),
+              // Text('Running on: $_platformVersion\n'),
+              // Text('Running on: $_platformVersion\n'),
+              // Text('Running on: $_platformVersion\n'),
+              // Text('Running on: $_platformVersion\n'),
+              // Text('Running on: $_platformVersion\n'),
+              // Text('Running on: $_platformVersion\n'),
+              // Text('Running on: $_platformVersion\n'),
+              // Text('Running on: $_platformVersion\n'),
+              // Text('Running on: $_platformVersion\n'),
+              // Text('Running on: $_platformVersion\n'),
+              // Text('Running on: $_platformVersion\n'),
+              // Text('Running on: $_platformVersion\n'),
+              // Text('Running on: $_platformVersion\n'),
+              // Text('Running on: $_platformVersion\n'),
+              // Text('Running on: $_platformVersion\n'),
+              // Text('Running on: $_platformVersion\n'),
+              // Text('Running on: $_platformVersion\n'),
+              // Text('Running on: $_platformVersion\n'),
+              // Text('Running on: $_platformVersion\n'),
             ],
           ),
         ),

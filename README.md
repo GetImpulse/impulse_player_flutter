@@ -20,7 +20,7 @@ Features:
 In root `pubspec.yaml`:
 
 ```dart
-  impulse_player: ^0.3.1 # Remote
+  impulse_player: ^0.3.3 # Remote
 ```
 
 ### Android
@@ -124,7 +124,7 @@ Alternatively, each callback can be set anytime directly via the controller, suc
 ```dart
 _controller.onReady = () async {
    print("ImpulsePlayer: onReady");
-   await _controller.load("Title", "Subtitle", "url");
+   await _controller.load("url");
 };
 ```
 

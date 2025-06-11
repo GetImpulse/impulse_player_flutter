@@ -26,7 +26,7 @@ class ImpulsePlayerViewContainer: NSObject, FlutterPlatformView {
     }
     
     func load(url: String, title: String?, subtitle: String?, headers: [String: String]) {
-        inner.load( title: title, subtitle: subtitle, url: URL(string: url)!, headers: headers)
+        inner.load(url: URL(string: url)!, title: title, subtitle: subtitle, headers: headers)
     }
     
     func play() {

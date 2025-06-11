@@ -14,7 +14,12 @@ class ImpulsePlayerView extends StatefulWidget {
   State<StatefulWidget> createState() => _ImpulsePlayerViewState();
 }
 
-class _ImpulsePlayerViewState extends State<ImpulsePlayerView> {
+class _ImpulsePlayerViewState extends State<ImpulsePlayerView> with AutomaticKeepAliveClientMixin {
+
+  bool _disposed = false;
+
+  @override
+  bool get wantKeepAlive => !_disposed;
 
   @override
   void initState() {
@@ -31,6 +36,7 @@ class _ImpulsePlayerViewState extends State<ImpulsePlayerView> {
 
   @override
   void dispose() {
+    _disposed = true;
     ImpulsePlayerFactory.dispose(widget.controller);
     super.dispose();
   }

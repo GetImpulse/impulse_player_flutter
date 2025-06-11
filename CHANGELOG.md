@@ -1,3 +1,7 @@
+## 0.3.3
+
+* [iOS] Fixed an issue where the player would not reuse nicely when used inside a ListView.
+
 ## 0.3.2
 
 * [iOS] Fixed an issue causing iOS not finding the iOS library since version 0.3.0.

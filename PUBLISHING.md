@@ -17,6 +17,10 @@ In order to publish, several checks should be done.
 - [ ] Ensure `example/ios/Podfile` enabled the remote reference.
 - [ ] Ensure `ios/impulse_player_flutter.podspec` contains the correct version of the iOS library.
 
+## Example
+
+- [ ] Ensure `example/pubspec.yaml` contains the correct version.
+
 ## Publish
 
 - [ ] `dart pub publish`

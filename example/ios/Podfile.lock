@@ -2,7 +2,7 @@ PODS:
   - Flutter (1.0.0)
   - google-cast-sdk (4.8.3):
     - Protobuf (~> 3.13)
-  - impulse_player_flutter (0.3.2):
+  - impulse_player_flutter (0.3.3):
     - Flutter
     - impulse_player_ios
   - impulse_player_ios (0.2.0):
@@ -40,7 +40,7 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
   google-cast-sdk: 1fb6724e94cc5ff23b359176e0cf6360586bb97a
-  impulse_player_flutter: 22c061ff85a633deb381055632a9ad4727aaa031
+  impulse_player_flutter: bce8a700c8fe6e6c33132a15c902045602c3f486
   impulse_player_ios: e39fba2cb06c95656ad835e3ba2f1870bfb047e3
   integration_test: 4a889634ef21a45d28d50d622cf412dc6d9f586e
   Protobuf: 2e6de032ba12b9efb390ae550d1a243a5b19ddfc
