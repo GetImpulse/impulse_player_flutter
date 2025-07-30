@@ -1,3 +1,9 @@
+## 0.3.4
+
+* [Session] Added support for keeping the session alive for longer than the view lifecycle.
+* [Android] Bumped to version [0.3.1](https://github.com/GetImpulse/impulse_player_android/releases/tag/0.3.1).
+* [iOS] Bumped to version [0.3.3](https://github.com/GetImpulse/impulse_player_ios/releases/tag/0.3.3).
+
 ## 0.3.3
 
 * [iOS] Fixed an issue where the player would not reuse nicely when used inside a ListView.

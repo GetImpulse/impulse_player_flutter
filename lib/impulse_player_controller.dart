@@ -77,4 +77,41 @@ class ImpulsePlayerController {
     final id = await ImpulsePlayerFactory.getViewId(this);
     return ImpulsePlayerPluginPlatform.instance.getError(id);
   }
+
+  /// Manually keeps the underlying native player alive beyond the lifetime of its associated view.
+  ///
+  /// **⚠️ Use with caution.**
+  ///
+  /// This method should **only** be used when you need the player instance to persist
+  /// beyond the lifecycle of the view — for example, in advanced cases where you're
+  /// managing player state manually across multiple views or routes.
+  ///
+  /// In most typical scenarios, the `ImpulsePlayer` handles cleanup automatically
+  /// when the view is disposed. Using this method bypasses that behavior and may lead
+  /// to memory leaks or unintended playback behavior if not managed correctly.
+  ///
+  /// > Note: This API is likely to be **removed in a future version**, once full
+  /// media control lifecycle management is implemented in the plugin.
+  Future<void> keepAlive() async {
+    final id = await ImpulsePlayerFactory.getViewId(this);
+    return ImpulsePlayerPluginPlatform.instance.keepAlive(id);
+  }
+
+  /// Manually disposes of a previously retained native player instance.
+  ///
+  /// **⚠️ Use with caution.**
+  ///
+  /// This should be used in conjunction with [keepAlive] when you've explicitly
+  /// retained a player beyond the view's lifetime. It ensures the native resources
+  /// are released when no longer needed.
+  ///
+  /// If you haven't used [keepAlive], you typically do **not** need to call this method,
+  /// as `ImpulsePlayer` automatically disposes of resources during normal lifecycle cleanup.
+  ///
+  /// > Note: This API is likely to be **removed in a future version**, once full
+  /// media control lifecycle management is implemented in the plugin.
+  Future<void> dispose() async {
+    final id = await ImpulsePlayerFactory.getViewId(this);
+    return ImpulsePlayerPluginPlatform.instance.dispose(id);
+  }
 }

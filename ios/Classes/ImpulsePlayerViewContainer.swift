@@ -60,15 +60,29 @@ class ImpulsePlayerViewContainer: NSObject, FlutterPlatformView {
     
     func getProgress() -> Int64 {
         // iOS returns a TimeInterval which is seconds with millis as decimals. Where the Flutter library expects milliseconds here.
+        if inner.progress.isNaN {
+            return 0
+        }
         return Int64(inner.progress * 1000)
     }
     
     func getDuration() -> Int64 {
         // iOS returns a TimeInterval which is seconds with millis as decimals. Where the Flutter library expects milliseconds here.
+        if inner.duration.isNaN {
+            return 0
+        }
         return Int64(inner.duration * 1000)
     }
     
     func getError() -> String? {
         return inner.error?.localizedDescription
+    }
+    
+    func keepAlive() {
+        // No-op for iOS
+    }
+    
+    func dispose() {
+        // No-op for iOS
     }
 }

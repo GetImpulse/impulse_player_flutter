@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'impulse_player_flutter'
-  s.version          = '0.3.3'
+  s.version          = '0.3.4'
   s.summary          = 'Impulse Player flutter plugin'
   s.description      = <<-DESC
 A new Flutter plugin project.

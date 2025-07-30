@@ -26,7 +26,7 @@ abstract class ImpulsePlayerPluginPlatform extends PlatformInterface {
     PlatformInterface.verifyToken(instance, _token);
     _instance = instance;
   }
-
+  
   Future<String?> getPlatformVersion() {
     throw UnimplementedError('platformVersion() has not been implemented.');
   }
@@ -69,6 +69,14 @@ abstract class ImpulsePlayerPluginPlatform extends PlatformInterface {
 
   Future<String?> getError(int id) {
     throw UnimplementedError('getError() has not been implemented.');
+  }
+
+  Future<void> keepAlive(int id) {
+    throw UnimplementedError('keepAlive() has not been implemented.');
+  }
+
+  Future<void> dispose(int id) {
+    throw UnimplementedError('dispose() has not been implemented.');
   }
 
   Future<void> setAppearance(

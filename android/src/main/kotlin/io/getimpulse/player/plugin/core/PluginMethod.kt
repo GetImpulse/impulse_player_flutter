@@ -34,6 +34,8 @@ internal sealed class PluginMethod {
     data class GetProgress(val id: Int) : PluginMethod()
     data class GetDuration(val id: Int) : PluginMethod()
     data class GetError(val id: Int) : PluginMethod()
+    data class KeepAlive(val id: Int) : PluginMethod()
+    data class Dispose(val id: Int) : PluginMethod()
     data class SetAppearance(
         val h3: ImpulsePlayerFont,
         val h4: ImpulsePlayerFont,
@@ -97,6 +99,16 @@ internal sealed class PluginMethod {
         is GetError -> {
             val error = PluginNativeViewFactory.get(id)?.getError()
             Result.Data(error)
+        }
+
+        is KeepAlive -> {
+            PluginNativeViewFactory.get(id)?.externalKeepAlive()
+            Result.Executed
+        }
+
+        is Dispose -> {
+            PluginNativeViewFactory.get(id)?.externalDispose()
+            Result.Executed
         }
 
         is SetAppearance -> {
@@ -181,6 +193,16 @@ internal sealed class PluginMethod {
                 PluginConstants.Method.GetError -> {
                     requireNotNull(id)
                     GetError(id)
+                }
+
+                PluginConstants.Method.KeepAlive -> {
+                    requireNotNull(id)
+                    KeepAlive(id)
+                }
+
+                PluginConstants.Method.Dispose -> {
+                    requireNotNull(id)
+                    Dispose(id)
                 }
 
                 PluginConstants.Method.SetAppearance -> {

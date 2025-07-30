@@ -13,6 +13,8 @@ internal enum PluginConstants {
         static let getProgress = "get_progress"
         static let getDuration = "get_duration"
         static let getError = "get_error"
+        static let keepAlive = "keep_alive"
+        static let dispose = "dispose"
         
         static let setAppearance = "set_appearance"
         static let setSettings = "set_settings"

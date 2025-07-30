@@ -17,6 +17,8 @@ internal object PluginConstants {
         const val GetProgress = "get_progress"
         const val GetDuration = "get_duration"
         const val GetError = "get_error"
+        const val KeepAlive = "keep_alive"
+        const val Dispose = "dispose"
 
         const val SetAppearance = "set_appearance"
         const val SetSettings = "set_settings"

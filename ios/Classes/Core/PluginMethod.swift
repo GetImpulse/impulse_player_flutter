@@ -19,6 +19,8 @@ enum PluginMethod {
     case getProgress(id: Int64)
     case getDuration(id: Int64)
     case getError(id: Int64)
+    case keepAlive(id: Int64)
+    case dispose(id: Int64)
     case setAppearance(h3: ImpulsePlayerFont, h4: ImpulsePlayerFont, s1: ImpulsePlayerFont, l4: ImpulsePlayerFont, l7: ImpulsePlayerFont, p1: ImpulsePlayerFont, p2: ImpulsePlayerFont, accentColor: UIColor)
     case setSettings(pictureInPictureEnabled: Bool, castReceiverApplicationId: String?)
 
@@ -63,6 +65,14 @@ enum PluginMethod {
         case .getError(let id):
             let error = PluginNativeViewFactory.get(id)?.getError()
             return error
+            
+        case .keepAlive(let id):
+            PluginNativeViewFactory.get(id)?.keepAlive()
+            return nil
+            
+        case .dispose(let id):
+            PluginNativeViewFactory.get(id)?.dispose()
+            return nil
             
         case .setAppearance(let h3, let h4, let s1, let l4, let l7, let p1, let p2, let accentColor):
             ImpulsePlayer.setAppearance(appearance: ImpulsePlayerAppearance(
@@ -144,6 +154,14 @@ enum PluginMethod {
         case PluginConstants.Method.getError:
             guard let id else { fatalError("Missing id") }
             return .getError(id: id)
+            
+        case PluginConstants.Method.keepAlive:
+            guard let id else { fatalError("Missing id") }
+            return .keepAlive(id: id)
+            
+        case PluginConstants.Method.dispose:
+            guard let id else { fatalError("Missing id") }
+            return .dispose(id: id)
             
         case PluginConstants.Method.setAppearance:
             return .setAppearance(

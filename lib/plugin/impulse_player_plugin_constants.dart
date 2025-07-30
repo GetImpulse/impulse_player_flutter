@@ -13,6 +13,8 @@ class ImpulsePlayerPluginConstants {
   static const String MethodGetProgress = "get_progress";
   static const String MethodGetDuration = "get_duration";
   static const String MethodGetError = "get_error";
+  static const String MethodKeepAlive = "keep_alive";
+  static const String MethodDispose = "dispose";
   
   static const String MethodSetAppearance = "set_appearance";
   static const String MethodSetSettings = "set_settings";

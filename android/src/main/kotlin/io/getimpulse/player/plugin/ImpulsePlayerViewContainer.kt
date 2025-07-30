@@ -68,6 +68,14 @@ internal class ImpulsePlayerViewContainer(
         return inner.getError().value
     }
 
+    fun externalKeepAlive() {
+        ImpulsePlayerFlutter.externalKeepAlive(inner)
+    }
+
+    fun externalDispose() {
+        ImpulsePlayerFlutter.externalDispose(inner)
+    }
+
     override fun dispose() {
         println("dispose")
         PluginNativeViewFactory.dispose(this)

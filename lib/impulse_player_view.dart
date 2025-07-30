@@ -22,12 +22,8 @@ class _ImpulsePlayerViewState extends State<ImpulsePlayerView> with AutomaticKee
   bool get wantKeepAlive => !_disposed;
 
   @override
-  void initState() {
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
+    super.build(context);
     return AspectRatio(
       aspectRatio: 16 / 9,
       child: ImpulsePlayerFactory.createView(context, widget.controller)

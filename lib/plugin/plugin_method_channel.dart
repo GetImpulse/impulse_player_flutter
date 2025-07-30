@@ -9,7 +9,7 @@ import 'package:impulse_player_flutter/plugin/impulse_player_plugin_constants.da
 import 'plugin_platform.dart';
 
 /// An implementation of [ImpulsePlayerPluginPlatform] that uses method channels.
-class MethodChannelPlugin extends ImpulsePlayerPluginPlatform {
+class MethodChannelPlugin implements ImpulsePlayerPluginPlatform {
   /// The method channel used to interact with the native platform.
   @visibleForTesting
   final methodChannel = const MethodChannel(ImpulsePlayerPluginConstants.PluginTag);
@@ -126,6 +126,20 @@ class MethodChannelPlugin extends ImpulsePlayerPluginPlatform {
   @override
   Future<String?> getError(int id) async {
     return await methodChannel.invokeMethod<String?>(ImpulsePlayerPluginConstants.MethodGetError, { 
+      ImpulsePlayerPluginConstants.ParameterId: id,
+    });
+  }
+
+  @override
+  Future<void> keepAlive(int id) async {
+    return await methodChannel.invokeMethod<void>(ImpulsePlayerPluginConstants.MethodKeepAlive, { 
+      ImpulsePlayerPluginConstants.ParameterId: id,
+    });
+  }
+
+  @override
+  Future<void> dispose(int id) async {
+    return await methodChannel.invokeMethod<void>(ImpulsePlayerPluginConstants.MethodDispose, { 
       ImpulsePlayerPluginConstants.ParameterId: id,
     });
   }
