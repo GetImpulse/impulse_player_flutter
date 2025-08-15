@@ -1,3 +1,7 @@
+## 0.3.5
+
+* [Android] Bumped to version [0.3.2](https://github.com/GetImpulse/impulse_player_android/releases/tag/0.3.2).
+
 ## 0.3.4
 
 * [Session] Added support for keeping the session alive for longer than the view lifecycle.
