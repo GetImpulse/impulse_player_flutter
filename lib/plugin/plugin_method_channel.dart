@@ -87,7 +87,7 @@ class MethodChannelPlugin implements ImpulsePlayerPluginPlatform {
   }
 
   @override
-  Future<void> seek(int id, Long time) async {
+  Future<void> seek(int id, int time) async {
      await methodChannel.invokeMethod<void>(ImpulsePlayerPluginConstants.MethodSeek, { 
       ImpulsePlayerPluginConstants.ParameterId: id,
       ImpulsePlayerPluginConstants.ParameterTime: time,

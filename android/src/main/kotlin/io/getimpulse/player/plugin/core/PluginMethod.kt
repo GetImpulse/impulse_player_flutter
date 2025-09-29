@@ -165,9 +165,9 @@ internal sealed class PluginMethod {
 
                 PluginConstants.Method.Seek -> {
                     requireNotNull(id)
-                    val time = call.argument<Long>(PluginConstants.Parameter.Time)
+                    val time = call.argument<Int>(PluginConstants.Parameter.Time)
                     requireNotNull(time)
-                    Seek(id, time)
+                    Seek(id, time.toLong())
                 }
 
                 PluginConstants.Method.GetState -> {

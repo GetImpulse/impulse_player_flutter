@@ -48,7 +48,7 @@ class ImpulsePlayerController {
     return ImpulsePlayerPluginPlatform.instance.pause(id);
   }
 
-  Future<void> seek(Long time) async {
+  Future<void> seek(int time) async {
     final id = await ImpulsePlayerFactory.getViewId(this);
     return ImpulsePlayerPluginPlatform.instance.seek(id, time);
   }

@@ -16,7 +16,7 @@ dependencies:
   # https://dart.dev/tools/pub/dependencies#version-constraints
   impulse_player_flutter:
     path: ../ # Local
-  # impulse_player_flutter: ^0.3.3 # Remote
+  # impulse_player_flutter: ^0.3.7 # Remote
 
 dev_dependencies:
   integration_test:

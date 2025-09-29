@@ -47,7 +47,7 @@ abstract class ImpulsePlayerPluginPlatform extends PlatformInterface {
     throw UnimplementedError('play() has not been implemented.');
   }
 
-  Future<void> seek(int id, Long time) {
+  Future<void> seek(int id, int time) {
     throw UnimplementedError('seek(time) has not been implemented.');
   }
 
